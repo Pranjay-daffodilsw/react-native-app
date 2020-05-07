@@ -15,7 +15,9 @@ import {
   Text,
   StatusBar,
   TextInput,
-  Image
+  Image,
+  Platform,
+  ImageBackground
 } from 'react-native';
 
 import {
@@ -25,6 +27,8 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import CustomButton from './native-components/button';
 
 const App: () => React$Node = () => {
   return (
@@ -40,22 +44,40 @@ const App: () => React$Node = () => {
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )}
+          <View>
+            <Text
+              style={styles.text}
+            >
+              Your current Platform is {Platform.OS + " " + Platform.Version}
+            </Text>
+          </View>
           <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                !!!This is some text!!!
+            <ImageBackground
+              style={{ width: "100%", }}
+              source={
+                require("./images/UGC12951_HubbleShatz_2019.jpg")
+              }
+            >
+              <View style={styles.sectionContainer}>
+                <Text style={styles.sectionTitle}>Step One</Text>
+                <Text style={styles.sectionDescription}>
+                  !!!This is some text!!!
               </Text>
-              <TextInput 
-                placeholder="you can type over here"
-                defaultValue="text_input_default"
-              />
-              <Image source={reactLogo}/>
-              <Image source={reactLogo}/>
-              <Image source={reactLogo}/>
-              <Image source={reactLogo}/>
-            </View>
-            
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="you can type over here"
+                  defaultValue="text_input_default"
+                />
+                {/* <Image source={reactLogo} /> */}
+              </View>
+              <View
+                style={styles.CustomButton}
+              >
+                <CustomButton
+                
+                 />
+              </View>
+            </ImageBackground>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -71,6 +93,9 @@ const reactLogo = {
 
 
 const styles = StyleSheet.create({
+  text: {
+    color: "green"
+  },
   scrollView: {
     backgroundColor: Colors.lighter,
   },
@@ -79,22 +104,25 @@ const styles = StyleSheet.create({
     right: 0,
   },
   body: {
+    color: 'yellow',
     backgroundColor: Colors.white,
   },
   sectionContainer: {
+    color: 'yellow',
     marginTop: 32,
     paddingHorizontal: 24,
   },
   sectionTitle: {
+    color: "yellow",
     fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
+    fontWeight: '600'
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
-    color: Colors.dark,
+    color: 'yellow'
+    //    color: Colors.dark,
   },
   highlight: {
     fontWeight: '700',
@@ -107,6 +135,15 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     textAlign: 'right',
   },
+  textInput: {
+    color: "yellow",
+    borderColor: "red",
+    borderStyle: "solid",
+    borderWidth: 1.5
+  },
+  CustomButton: {
+    
+  }
 });
 
 export default App;
