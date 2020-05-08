@@ -4,10 +4,10 @@ import {
     Button
  } from 'react-native';
 
-export default button = () => {
+export default button = (args) => {
     return (<Button
         title={"You can tap here !"}
-        onPress={() => {alert("You just clicked a button")}}
+        onPress={() => args.navigation.navigation.navigate("HomeAlternate")}
         color="purple"
      />)
 
